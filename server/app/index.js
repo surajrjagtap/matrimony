@@ -19,8 +19,8 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
-// const authRoutes = require('./routes/auth');
-// const userRoutes = require('./routes/users');
+const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/usersRoutes');
 // const { errorHandler } = require('./middleware/errorMiddleware');
 
 // Load environment variables
@@ -35,8 +35,8 @@ const app = express();
 app.use(express.json());
 
 // API Routes
-// app.use('/api/auth', authRoutes);
-// app.use('/api/users', userRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
 
 // Health Check Route
 app.get('/', (req, res) => {
